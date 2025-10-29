@@ -44,8 +44,8 @@ exports.handler = async (event, context) => {
             payment_method_types: ['card'],
             line_items: lineItems,
             mode: 'payment',
-            success_url: `https://your-framer-site.framer.website/success?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `https://your-framer-site.framer.website/cart`,
+            success_url: `https://https://fun-work-391768.framer.app/success?session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `https://https://fun-work-391768.framer.app/cart`,
         })
 
         return {
