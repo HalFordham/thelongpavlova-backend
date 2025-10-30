@@ -41,12 +41,15 @@ exports.handler = async (event, context) => {
 
         // Create Stripe Checkout Session
         const session = await stripe.checkout.sessions.create({
-            payment_method_types: ['card'],
-            line_items: lineItems,
-            mode: 'payment',
-            success_url: `https://https://fun-work-391768.framer.app/success?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `https://https://fun-work-391768.framer.app/cart`,
-        })
+    payment_method_types: ['card'],
+    line_items: lineItems,
+    mode: 'payment',
+    shipping_address_collection: {
+        allowed_countries: ['US', 'CA', 'GB', 'AU'], // Add countries you ship to
+    },
+    success_url: `https://fun-work-391768.framer.app/success?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `https://fun-work-391768.framer.app`,
+})
 
         return {
             statusCode: 200,
